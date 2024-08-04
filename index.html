@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator App</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="Ca-Container">
+      <h3>Calculator</h3> 
+      <div class="input-output">
+        <input id="ip-textbox" value="0" type="text" >
+        <input id="ip-txtvalue" type="number" value="0">
+      </div>  
+      <!--<button id="btn_clear" name="btn_clear">clear</button>-->
+     <div class="ParentGroup"> 
+      <div class="numberGroup">
+          <div class="First-row" >
+            <button  id="btn_one" name="one" onclick="OneClick()">1</button>
+            <button id="btn_two" name="two" onclick="TwoClick()">2</button>
+            <button id="btn_three" name="three" onclick="ThreeClick()">3</button>
+          </div>
+          <div class="Second-row" >
+            <button id="btn_four" name="four" onclick="FourClick()">4</button>
+            <button id="btn_five" name="five" onclick="FiveClick()" >5</button>
+            <button id="btn_six" name="six" onclick="SixClick()">6</button>
+          </div>
+          <div class="Third-row" >
+            <button id="btn_seven" name="seven" onclick="SevenClick()">7</button>
+            <button id="btn_eight" name="eight" onclick="EightClick()">8</button>
+            <button id="btn_nine" name="nine" onclick="NineClick()">9</button>
+          </div>
+          <div class="Fourth-row" >
+            <button id="btn_zero" name="0" onclick="ZeroClick()">0</button>
+            <button id="btn_clear" name="Clear" onclick="Clear()">Clear</button>
+          </div>
+      </div>
+
+      <div class="Control-group">
+          <button  id="btn_add" name="Add">+</button>
+          <button id="btn_subtract" name="Subtract">-</button>
+          <button id="btn_multiply" name="Multiply">x</button>
+          <button id="btn_divide" name="Divide">÷</button>
+          <button id="btn_equal" name="equal">=</button>
+      </div>
+      </div>
+    </div>
+ <script>
+        
+        var InputCurrValue = document.getElementById("ip-textbox");
+        var OutputValue = document.getElementById("ip-txtvalue");
+        const Add = document.getElementById('btn_add');
+        const Sub = document.getElementById('btn_subtract');
+        const Multi = document.getElementById('btn_multiply');
+        const Divide = document.getElementById('btn_divide');
+        const Equal = document.getElementById('btn_equal');
+        let IntialCount = 0;
+        var overallValue = 0;
+        let temp = 0;
+        let PreserveVal = 0;
+        function OneClick(){
+             IntialCount++ 
+             InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+             InputCurrValue.value += 1;
+             overallValue = InputCurrValue.value;
+        }
+         
+        function SetCurrentValue(InputCurrValue,IntialCount){
+          return InputCurrValue.value == 0 && IntialCount > 0 ? "" : InputCurrValue.value; 
+        }
+
+        function TwoClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=2
+          overallValue = InputCurrValue.value;
+        }
+
+        function ThreeClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=3
+          overallValue = InputCurrValue.value;
+        }
+
+        function FourClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=4
+          overallValue = InputCurrValue.value;
+        }
+
+        function FiveClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=5
+          overallValue = InputCurrValue.value;
+        }
+        
+        function SixClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=6
+          overallValue = InputCurrValue.value;
+        }
+
+        function SevenClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=7
+          overallValue = InputCurrValue.value;
+        }
+
+        function EightClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=8
+          overallValue = InputCurrValue.value;
+        }
+
+        function NineClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=9
+          overallValue = InputCurrValue.value;
+        }
+
+        function ZeroClick(){
+          IntialCount++ 
+          InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
+          InputCurrValue.value +=0
+          overallValue = InputCurrValue.value;
+        }
+
+        function Clear(){
+          document.getElementById("ip-textbox").value = 0;
+          document.getElementById("ip-txtvalue").value =0;
+          IntialCount = 0;
+        }
+
+        /*if(controlButton)
+        {
+          controlButton.addEventListener('click',function(event){
+            let button = event.target.name;
+            alert(button);
+          })
+        }*/
+
+        if(true){
+          let ControlType ="";
+          Add.addEventListener('click',function(event){
+            let button = event.target.name;
+            ControlType = button;
+            ControlMethod(ControlType)
+            console.log(ControlType);
+          })
+
+          Sub.addEventListener('click',function(event){
+            let button = event.target.name;
+            ControlType = button;
+            ControlMethod(ControlType)
+            console.log(ControlType);
+          })
+
+          Multi.addEventListener('click',function(event){
+            let button = event.target.name;
+            ControlType = button;
+            ControlMethod(ControlType)
+            console.log(ControlType);
+          })
+          Divide.addEventListener('click',function(event){
+            let button = event.target.name;
+            ControlType = button;
+            ControlMethod(ControlType)
+            console.log(ControlType);
+          })
+          Equal.addEventListener('click',function(event){
+            let button = event.target.name;
+            ControlType = button;
+            console.log(ControlType);
+          })
+
+        
+        }
+
+        function ControlMethod(ControlType)
+        {
+          switch(ControlType)
+          {
+            case 'Add':
+            var val = OutputValue.value;
+            OutputValue.value = Number(OutputValue.value) + Number(overallValue);
+            overallValue = 0;
+            document.getElementById("ip-textbox").value = 0;
+            break;
+
+            case 'Subtract':
+            OutputValue.value =Number(OutputValue.value) - Number(overallValue);
+            overallValue = 0;
+            document.getElementById("ip-textbox").value = 0;
+            break;
+
+            case 'Multiply':
+            OutputValue.value = OutputValue.value == 0 ? overallValue : Number(OutputValue.value) * Number(overallValue);
+            overallValue = 0;
+            document.getElementById("ip-textbox").value = 0;
+            break;
+
+            case 'Divide':
+            OutputValue.value =Number(OutputValue.value) / Number(overallValue);
+            overallValue = 0;
+            document.getElementById("ip-textbox").value = 0;
+            break;
+
+            default:
+              console.log("unknown");
+          }
+        }
+ </script>
+</body>
+</html>
