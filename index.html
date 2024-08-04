@@ -208,7 +208,7 @@
             break;
 
             case 'Divide':
-            OutputValue.value =Number(OutputValue.value) / Number(overallValue);
+            OutputValue.value = OutputValue.value == 0 ? overallValue : Number(OutputValue.value) / Number(overallValue);
             overallValue = 0;
             document.getElementById("ip-textbox").value = 0;
             break;
