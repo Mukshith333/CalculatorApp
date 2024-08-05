@@ -10,7 +10,7 @@
     <div class="Ca-Container">
       <h3>Calculator</h3> 
       <div class="input-output">
-        <input id="ip-textbox" value="0" type="text" >
+        <input id="ip-textbox" value="0" type="number" >
         <input id="ip-txtvalue" type="number" value="0">
       </div>  
       <!--<button id="btn_clear" name="btn_clear">clear</button>-->
@@ -42,7 +42,7 @@
           <button id="btn_subtract" name="Subtract">-</button>
           <button id="btn_multiply" name="Multiply">x</button>
           <button id="btn_divide" name="Divide">÷</button>
-          <button id="btn_equal" name="equal">=</button>
+          <button id="btn_equal" name="Equal">=</button>
       </div>
       </div>
     </div>
@@ -58,7 +58,7 @@
         let IntialCount = 0;
         var overallValue = 0;
         let temp = 0;
-        let PreserveVal = 0;
+        let PreserveControl = 0;
         function OneClick(){
              IntialCount++ 
              InputCurrValue.value = SetCurrentValue(InputCurrValue,IntialCount);
@@ -139,19 +139,12 @@
           IntialCount = 0;
         }
 
-        /*if(controlButton)
-        {
-          controlButton.addEventListener('click',function(event){
-            let button = event.target.name;
-            alert(button);
-          })
-        }*/
-
         if(true){
           let ControlType ="";
           Add.addEventListener('click',function(event){
             let button = event.target.name;
             ControlType = button;
+            PreserveControl = button;
             ControlMethod(ControlType)
             console.log(ControlType);
           })
@@ -159,6 +152,7 @@
           Sub.addEventListener('click',function(event){
             let button = event.target.name;
             ControlType = button;
+            PreserveControl = button; 
             ControlMethod(ControlType)
             console.log(ControlType);
           })
@@ -166,18 +160,21 @@
           Multi.addEventListener('click',function(event){
             let button = event.target.name;
             ControlType = button;
+            PreserveControl = button;
             ControlMethod(ControlType)
             console.log(ControlType);
           })
           Divide.addEventListener('click',function(event){
             let button = event.target.name;
             ControlType = button;
+            PreserveControl = button;
             ControlMethod(ControlType)
             console.log(ControlType);
           })
           Equal.addEventListener('click',function(event){
             let button = event.target.name;
             ControlType = button;
+            ControlMethod(ControlType)
             console.log(ControlType);
           })
 
@@ -208,7 +205,28 @@
             break;
 
             case 'Divide':
-            OutputValue.value = OutputValue.value == 0 ? overallValue : Number(OutputValue.value) / Number(overallValue);
+            OutputValue.value =OutputValue.value == 0 ? overallValue : Number(OutputValue.value) / Number(overallValue);
+            overallValue = 0;
+            document.getElementById("ip-textbox").value = 0;
+            break;
+
+            case 'Equal':
+            if(PreserveControl == "Add")
+            {
+              OutputValue.value =Number(OutputValue.value) + Number(overallValue);
+            }
+            else if(PreserveControl == "Subtract")
+            {
+              OutputValue.value =Number(OutputValue.value) - Number(overallValue);
+            }
+            else if(PreserveControl == "Multiply")
+            {
+              OutputValue.value =Number(OutputValue.value) * Number(overallValue);
+            }
+            else if(PreserveControl == "Divide")
+            {
+              OutputValue.value =Number(OutputValue.value) / Number(overallValue);
+            }
             overallValue = 0;
             document.getElementById("ip-textbox").value = 0;
             break;
